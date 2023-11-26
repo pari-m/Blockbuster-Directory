@@ -1,6 +1,7 @@
 ---
 ## About
-Welcome to my collection of film data
+
+Welcome to my collection of film data, there are over 1000 films in my database with loads of metadata attached to each film.
 
 ## Features
 
