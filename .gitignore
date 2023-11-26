@@ -1,0 +1,6 @@
+__pycache_
+venv/
+.env
+.idea
+.DS_Store
+app/__pycache__
