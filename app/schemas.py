@@ -1,3 +1,5 @@
+#this is needed because fast api does not support sqlalchemy as the response models
+
 from pydantic import BaseModel, EmailStr
 from typing import List
 

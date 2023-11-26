@@ -39,12 +39,13 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    return {"message": "Welcome to my film world"}
+    return {"message": "Welcome to my film collection"}
 
+#get all films
 @app.get("/films")
 def get_films(page_size: int = 10, page: int = 1):
-    if page_size > 100 or page_size < 0:
-        page_size = 100
+    if page_size > 50 or page_size < 0:
+        page_size = 50
     session = Session()
     films = session.query(Film).limit(page_size).offset((page - 1) * page_size).all()
     session.close()
@@ -52,7 +53,7 @@ def get_films(page_size: int = 10, page: int = 1):
     return JSONResponse(status_code=200, content={"status_code": 200, "result": result})
 
 
-
+#Craete a new film
 @app.post("/films", status_code=status.HTTP_201_CREATED)
 def create_film(film: schemas.FilmCreate):
     session = Session()
