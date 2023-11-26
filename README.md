@@ -12,14 +12,6 @@ Welcome to my collection of film data, there are over 1000 films in my database 
 - [x] Postman collection with sample requests
 - [x] A basic Ansible config for standing up the server this can be found under /ansible/ansible.yaml
 
-
-## Todo
-
-- [ ] Add auth
-- [ ] Setup some from of CD such that pusing to github automatically updates the app
-- [ ] Add more tables to the API 
-- [ ] Setup SSL on the server, SSL is currrently coming from Cloudflare
-
 <br>
 
 ## Sample for intrecration
@@ -74,4 +66,12 @@ pip install -r requirements.txt
 ```bash
 uvicorn app.main:app
 ```
+
+## Todo
+
+- [ ] Add auth
+- [ ] Setup some from of CD such that pusing to github automatically updates the app
+- [ ] Add more tables to the API 
+- [ ] Setup SSL on the server, SSL is currrently coming from Cloudflare
+
 ---
