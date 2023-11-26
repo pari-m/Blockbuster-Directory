@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "eaed7e49-7be4-4412-b218-e8ad51a6cdac",
+		"name": "Film collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27998632"
+	},
+	"item": [
+		{
+			"name": "Get all Films",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/films",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"films"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Film",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n                \"title\": \"New Film released today\",\n                \"release_year\": 2006,\n                \"rental_duration\": 6,\n                \"special_features\": [\n                    \"Deleted Scenes\",\n                    \"Behind the Scenes\"\n                ],\n                \"language_id\": 1,\n                \"description\": \"A Epic Drama of a Feminist And a Mad Scientist who must Battle a Teacher in The Canadian Rockies\",\n                \"rental_rate\": 0.99,\n                \"length\": 86,\n                \"replacement_cost\": 20.99,\n                \"rating\": \"PG\",\n                \"fulltext\": \"'academi':1\"\n            }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/films",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"films"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get one Film",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/films/<id>",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"films",
+						"<id>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Film",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/films/<id>",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"films",
+						"<id>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Film",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n                \"title\": \"theisa as\",\n                \"release_year\": 2006,\n                \"rental_duration\": 6,\n                \"special_features\": [\n                    \"Deleted Scenes\",\n                    \"Behind the Scenes\"\n                ],\n                \"language_id\": 1,\n                \"description\": \"A Epic Drama of a Feminist And a Mad Scientist who must Battle a Teacher in The Canadian Rockies\",\n                \"rental_rate\": 0.99,\n                \"length\": 86,\n                \"replacement_cost\": 20.99,\n                \"rating\": \"PG\",\n                \"fulltext\": \"'academi':1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/films/1010",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"films",
+						"1010"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "films.133t.net",
+			"type": "string"
+		}
+	]
+}
