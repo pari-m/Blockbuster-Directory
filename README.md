@@ -8,6 +8,7 @@ Welcome to my collection of film data
 - [x] Simple FastApi server
 - [x] API documentation using Swagger UI
 - [x] Basic CRUD for Films
+- [x] Postman collection with sample requests
 
 
 ## Todo
