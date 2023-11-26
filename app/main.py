@@ -60,7 +60,6 @@ def create_film(film: schemas.FilmCreate):
     session.add(film)
     session.commit()
     session.close()
-
     return {"data":film}
 
 # Get film buy id
@@ -88,7 +87,7 @@ def update_film(film_id: int, updated_film: schemas.FilmBase):
     db.refresh(film)
     return film
 
-# delete a film
+# Delete a film
 @app.delete("/films/{film_id}",status_code=status.HTTP_204_NO_CONTENT)
 def delete_film(film_id: int):
     db = Session()

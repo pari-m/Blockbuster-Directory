@@ -1,8 +1,6 @@
 from pydantic import BaseModel, EmailStr
 from typing import List
 
-
-
 class FilmBase(BaseModel):
     title: str
     description: str
