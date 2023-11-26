@@ -1,0 +1,87 @@
+- name: Setup Blockbuster-Directory App
+  hosts: enter_host_name
+  become: true
+  vars:
+    local_ssh_public_key: "{{ lookup('file', '~/.ssh/id_ed25519.pub') }}"
+
+  tasks:
+    - name: Create user 'chinook_host'
+      user:
+        name: chinook_host
+        comment: "Chinook Host User"
+        createhome: yes
+
+    - name: Add 'chinook_host' to sudoers
+      lineinfile:
+        dest: "/etc/sudoers"
+        line: "chinook_host ALL=(ALL) NOPASSWD:ALL"
+        validate: "/usr/sbin/visudo -cf %s"
+
+    - name: Ensure the SSH directory exists for the chinook_host
+      become_user: chinook_host
+      file:
+        path: "~/.ssh"
+        state: directory
+        mode: "0700"
+
+    - name: Copy local SSH public key to authorized_keys
+      become_user: chinook_host
+      authorized_key:
+        user: chinook_host
+        key: "{{ local_ssh_public_key }}"
+        state: present
+
+
+    - name: Update APT package cache
+      apt:
+        update_cache: yes
+
+    - name: Install Python
+      apt:
+        name: python3
+        state: present
+    
+    - name: Install Pip
+      apt:
+        name: python3-pip
+        state: present
+
+    - name: Create app directory
+      file:
+        become_user: chinook_host
+        path: /home/chinook_host/app
+        state: directory
+
+    - name: Create virtual environment
+      become_user: chinook_host
+      command: /home/chinook_host/app/virtualenv venv
+
+    - name: Create source directory
+      file:
+        become_user: chinook_host
+        path: /home/chinook_host/app/src
+        state: directory
+
+    - name: Clone Blockbuster-Directory repository
+      become_user: chinook_host
+      git:
+        repo: https://github.com/pari-m/Blockbuster-Directory.git
+        dest: /home/chinook_host/app/src
+        version: main
+
+    - name: Install Python dependencies
+      become_user: chinook_host
+      pip:
+        requirements: /home/chinook_host/app/src/requirements.txt
+
+    - name: Install Gunicorn and related dependencies
+      become_user: chinook_host
+      pip:
+        name:
+          - gunicorn
+          - httptools
+          - uvtools
+
+    - name: Start Gunicorn server
+      become_user: chinook_host
+      command: gunicorn -w 1 -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0

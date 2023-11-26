@@ -9,14 +9,14 @@ Welcome to my collection of film data
 - [x] API documentation using Swagger UI
 - [x] Basic CRUD for Films
 - [x] Postman collection with sample requests
+- [x] A basic Ansible config for standing up the server this can be found under /ansible/ansible.yaml
 
 
 ## Todo
 
 - [ ] Add auth
-- [ ] Setup some from of CD such that updating the github repo automatically updates the app
-- [ ] Add more tables to the API and figure out how to join between the tables using the ORM
-- [ ] Write a basic Ansible config for standing up the server
+- [ ] Setup some from of CD such that pusing to github automatically updates the app
+- [ ] Add more tables to the API 
 - [ ] Setup SSL on the server, SSL is currrently coming from Cloudflare
 
 <br>
