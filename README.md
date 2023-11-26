@@ -14,7 +14,7 @@ Welcome to my collection of film data, there are over 1000 films in my database 
 
 <br>
 
-## Sample for intrecration
+## Sample for testing
 
 https://films.133t.net
 
