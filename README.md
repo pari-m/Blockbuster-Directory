@@ -72,6 +72,6 @@ uvicorn app.main:app
 - [ ] Add auth
 - [ ] Setup some from of CD such that pusing to github automatically updates the app
 - [ ] Add more tables to the API 
-- [ ] Setup SSL on the server, SSL is currrently coming from Cloudflare
+- [ ] Setup SSL on the server, SSL is currrently coming from Cloudflare 
 
 ---
