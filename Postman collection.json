@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "Get all Films",
+			"name": "Get all the Films",
 			"request": {
 				"method": "GET",
 				"header": [],
